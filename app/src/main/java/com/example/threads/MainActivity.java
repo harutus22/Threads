@@ -2,6 +2,7 @@ package com.example.threads;
 
 import android.content.Intent;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,14 +24,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.text);
 
-        h = new Handler(new Handler.Callback() {
+        h = new Handler(Looper.getMainLooper()){
             @Override
-            public boolean handleMessage(Message msg) {
+            public void handleMessage(Message msg) {
+                super.handleMessage(msg);
                 String text = msg.what * 10 + "%";
                 textView.setText(text);
-                return false;
             }
-        });
+        };
 
     }
 

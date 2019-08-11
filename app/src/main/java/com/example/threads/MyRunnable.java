@@ -1,7 +1,6 @@
 package com.example.threads;
 
 import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 
 
