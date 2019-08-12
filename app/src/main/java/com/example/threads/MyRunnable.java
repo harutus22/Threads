@@ -15,12 +15,13 @@ public class MyRunnable implements Runnable {
     @Override
     public void run() {
         isRunning = true;
+        handler.sendEmptyMessageDelayed(50, 5000);
         for(int i = 0; i <= 10; ++i){
             if(!isRunning){
                 break;
             }
             Log.d(MainActivity.TAG, String.valueOf(i));
-            handler.sendEmptyMessage(i);
+//            handler.sendEmptyMessage(i);
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
